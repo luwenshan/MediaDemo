@@ -22,7 +22,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".a01.DrawImageActivity" />
-        <activity android:name=".a02.AudioRecordActivity"></activity>
+        <activity android:name=".a02.AudioRecordActivity" />
+        <activity android:name=".a03.SurfaceCameraActivity" />
+        <activity android:name=".a03.TextureCameraActivity" />
+        <activity android:name=".a05.MediaRecordActivity" />
+        <activity android:name=".a04.H264RecordActivity"></activity>
     </application>
 
 </manifest>

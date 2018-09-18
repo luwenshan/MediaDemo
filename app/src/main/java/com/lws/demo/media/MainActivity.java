@@ -17,6 +17,10 @@ import android.widget.Toast;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.lws.demo.media.a01.DrawImageActivity;
 import com.lws.demo.media.a02.AudioRecordActivity;
+import com.lws.demo.media.a03.SurfaceCameraActivity;
+import com.lws.demo.media.a03.TextureCameraActivity;
+import com.lws.demo.media.a04.H264RecordActivity;
+import com.lws.demo.media.a05.MediaRecordActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private List<MainBean> mDataList;
 
     private String[] mPermissions = new String[]{
+            Manifest.permission.CAMERA,
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
@@ -63,14 +68,18 @@ public class MainActivity extends AppCompatActivity {
         List<MainBean> list = new ArrayList<>();
         list.add(new MainBean("SurfaceView绘制图片", DrawImageActivity.class));
         list.add(new MainBean("使用 AudioRecord 采集音频PCM并保存到文件", AudioRecordActivity.class));
+        list.add(new MainBean("使用 SurfaceView 来预览 Camera 数据", SurfaceCameraActivity.class));
+        list.add(new MainBean("使用 TextureView 来预览 Camera 数据", TextureCameraActivity.class));
+        list.add(new MainBean("收集Camera数据，并转码为H264存储到文件", H264RecordActivity.class));
+        list.add(new MainBean("音视频采集 + 混合", MediaRecordActivity.class));
         return list;
     }
 
     private void checkPermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            for (int i = 0; i < mPermissions.length; i++) {
-                if (ContextCompat.checkSelfPermission(this, mPermissions[i]) != PackageManager.PERMISSION_GRANTED) {
-                    mPermissionList.add(mPermissions[i]);
+            for (String mPermission : mPermissions) {
+                if (ContextCompat.checkSelfPermission(this, mPermission) != PackageManager.PERMISSION_GRANTED) {
+                    mPermissionList.add(mPermission);
                 }
             }
             if (!mPermissionList.isEmpty()) {
