@@ -7,6 +7,13 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
+    <supports-gl-texture android:name="GL_OES_compressed_paletted_texture" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,12 +28,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".a01.DrawImageActivity" />
-        <activity android:name=".a02.AudioRecordActivity" />
-        <activity android:name=".a03.SurfaceCameraActivity" />
-        <activity android:name=".a03.TextureCameraActivity" />
-        <activity android:name=".a05.MediaRecordActivity" />
-        <activity android:name=".a04.H264RecordActivity"></activity>
+        <activity android:name=".media.a01.DrawImageActivity" />
+        <activity android:name=".media.a02.AudioRecordActivity" />
+        <activity android:name=".media.a03.SurfaceCameraActivity" />
+        <activity android:name=".media.a03.TextureCameraActivity" />
+        <activity android:name=".media.a05.MediaRecordActivity" />
+        <activity android:name=".media.a04.H264RecordActivity" />
+        <activity android:name=".opengles.b01.OpenGLES20Activity"></activity>
     </application>
 
 </manifest>

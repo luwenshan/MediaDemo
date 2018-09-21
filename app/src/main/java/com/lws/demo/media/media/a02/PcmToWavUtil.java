@@ -1,4 +1,4 @@
-package com.lws.demo.media.a02;
+package com.lws.demo.media.media.a02;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;

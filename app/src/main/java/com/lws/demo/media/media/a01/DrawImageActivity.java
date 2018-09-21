@@ -1,4 +1,4 @@
-package com.lws.demo.media.a01;
+package com.lws.demo.media.media.a01;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

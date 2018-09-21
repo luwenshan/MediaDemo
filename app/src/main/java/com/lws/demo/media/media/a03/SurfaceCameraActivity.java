@@ -1,4 +1,4 @@
-package com.lws.demo.media.a03;
+package com.lws.demo.media.media.a03;
 
 import android.graphics.ImageFormat;
 import android.hardware.Camera;

@@ -1,11 +1,10 @@
-package com.lws.demo.media.a02;
+package com.lws.demo.media.media.a02;
 
 import android.annotation.SuppressLint;
 import android.media.AudioAttributes;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioRecord;
-import android.media.AudioRouting;
 import android.media.AudioTrack;
 import android.media.MediaRecorder;
 import android.os.AsyncTask;

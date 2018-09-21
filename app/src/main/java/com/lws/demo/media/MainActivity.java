@@ -3,6 +3,7 @@ package com.lws.demo.media;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.opengl.GLES20;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,12 +16,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.lws.demo.media.a01.DrawImageActivity;
-import com.lws.demo.media.a02.AudioRecordActivity;
-import com.lws.demo.media.a03.SurfaceCameraActivity;
-import com.lws.demo.media.a03.TextureCameraActivity;
-import com.lws.demo.media.a04.H264RecordActivity;
-import com.lws.demo.media.a05.MediaRecordActivity;
+import com.lws.demo.media.media.a01.DrawImageActivity;
+import com.lws.demo.media.media.a02.AudioRecordActivity;
+import com.lws.demo.media.media.a03.SurfaceCameraActivity;
+import com.lws.demo.media.media.a03.TextureCameraActivity;
+import com.lws.demo.media.media.a04.H264RecordActivity;
+import com.lws.demo.media.media.a05.MediaRecordActivity;
+import com.lws.demo.media.opengles.b01.OpenGLES20Activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("使用 SurfaceView 来预览 Camera 数据", SurfaceCameraActivity.class));
         list.add(new MainBean("使用 TextureView 来预览 Camera 数据", TextureCameraActivity.class));
         list.add(new MainBean("收集Camera数据，并转码为H264存储到文件", H264RecordActivity.class));
-        list.add(new MainBean("音视频采集 + 混合", MediaRecordActivity.class));
+        list.add(new MainBean("音视频采集 + 混合(未完成)", MediaRecordActivity.class));
+        list.add(new MainBean("OpenGL ES 2.0", OpenGLES20Activity.class));
         return list;
     }
 

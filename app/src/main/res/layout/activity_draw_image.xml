@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context=".a01.DrawImageActivity">
+    tools:context=".media.a01.DrawImageActivity">
 
     <SurfaceView
         android:id="@+id/surface_view"

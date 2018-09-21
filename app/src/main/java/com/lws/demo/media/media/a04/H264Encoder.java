@@ -1,4 +1,4 @@
-package com.lws.demo.media.a04;
+package com.lws.demo.media.media.a04;
 
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;

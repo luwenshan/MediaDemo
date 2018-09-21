@@ -1,4 +1,4 @@
-package com.lws.demo.media.a05;
+package com.lws.demo.media.media.a05;
 
 import android.hardware.Camera;
 import android.os.Bundle;
