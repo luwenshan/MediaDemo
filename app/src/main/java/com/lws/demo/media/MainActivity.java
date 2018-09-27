@@ -23,6 +23,7 @@ import com.lws.demo.media.media.a03.TextureCameraActivity;
 import com.lws.demo.media.media.a04.H264RecordActivity;
 import com.lws.demo.media.media.a05.MediaRecordActivity;
 import com.lws.demo.media.opengles.b01.OpenGLES20Activity;
+import com.lws.demo.media.opengles.b02.OpenGLTriangleActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("收集Camera数据，并转码为H264存储到文件", H264RecordActivity.class));
         list.add(new MainBean("音视频采集 + 混合(未完成)", MediaRecordActivity.class));
         list.add(new MainBean("OpenGL ES 2.0", OpenGLES20Activity.class));
+        list.add(new MainBean("OpenGL ES 2.0 绘制等腰直角三角形", OpenGLTriangleActivity.class));
         return list;
     }
 

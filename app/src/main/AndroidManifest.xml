@@ -34,7 +34,9 @@
         <activity android:name=".media.a03.TextureCameraActivity" />
         <activity android:name=".media.a05.MediaRecordActivity" />
         <activity android:name=".media.a04.H264RecordActivity" />
-        <activity android:name=".opengles.b01.OpenGLES20Activity"></activity>
+        <activity android:name=".opengles.b01.OpenGLES20Activity" />
+        <activity android:name=".opengles.b02.OpenGLTriangleActivity"></activity>
+        <activity android:name=".opengles.b03.SquareActivity" />
     </application>
 
 </manifest>
