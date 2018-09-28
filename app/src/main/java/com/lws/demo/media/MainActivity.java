@@ -3,7 +3,6 @@ package com.lws.demo.media;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.opengl.GLES20;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,6 +23,8 @@ import com.lws.demo.media.media.a04.H264RecordActivity;
 import com.lws.demo.media.media.a05.MediaRecordActivity;
 import com.lws.demo.media.opengles.b01.OpenGLES20Activity;
 import com.lws.demo.media.opengles.b02.OpenGLTriangleActivity;
+import com.lws.demo.media.opengles.b03.SquareActivity;
+import com.lws.demo.media.opengles.b04.CircleActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("音视频采集 + 混合(未完成)", MediaRecordActivity.class));
         list.add(new MainBean("OpenGL ES 2.0", OpenGLES20Activity.class));
         list.add(new MainBean("OpenGL ES 2.0 绘制等腰直角三角形", OpenGLTriangleActivity.class));
+        list.add(new MainBean("OpenGL ES 2.0 绘制正方形", SquareActivity.class));
+        list.add(new MainBean("OpenGL ES 2.0 绘制圆形", CircleActivity.class));
         return list;
     }
 

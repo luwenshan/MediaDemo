@@ -1,4 +1,4 @@
-package com.lws.demo.media.opengles.b03;
+package com.lws.demo.media.opengles.b04;
 
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
@@ -9,13 +9,13 @@ import com.lws.demo.media.opengles.Util;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.nio.ShortBuffer;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class SquareRenderer implements GLSurfaceView.Renderer {
-
+public class CircleRenderer implements GLSurfaceView.Renderer {
     private final String vertexShaderCode = "" +
             "attribute vec4 vPosition;" +
             "uniform mat4 vMatrix;" +
@@ -30,38 +30,28 @@ public class SquareRenderer implements GLSurfaceView.Renderer {
             "   gl_FragColor = vColor;" +
             "}";
 
-    private final float[] triangleCoords = {
-            -0.5f, -0.5f, 0f,// bottom left
-            0.5f, -0.5f, 0f,// bottom right
-            -0.5f, 0.5f, 0f,// top left
-            0.5f, 0.5f, 0f// top right
-    };
+    private FloatBuffer mVertexBuffer;
+
+    private float[] coordinates;
 
     private float[] color = {1, 1, 1, 1};
-    private FloatBuffer mVertexBuffer;
     private int mProgram;
+    private int n = 100;
+    private float radius = 0.5f;
 
     private float[] mMVPMatrix = new float[16];
 
-    // 索引法
-    private short[] index = {0, 1, 2, 1, 2, 3};
-    private ShortBuffer mIndexBuffer;
-
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-        GLES20.glClearColor(0f, 0f, 0f, 1f);
+        GLES20.glClearColor(0, 0, 0, 1);
 
-        ByteBuffer bb = ByteBuffer.allocateDirect(triangleCoords.length * 4);
+        coordinates = createPositions();
+
+        ByteBuffer bb = ByteBuffer.allocateDirect(coordinates.length * 4);
         bb.order(ByteOrder.nativeOrder());
         mVertexBuffer = bb.asFloatBuffer();
-        mVertexBuffer.put(triangleCoords);
+        mVertexBuffer.put(coordinates);
         mVertexBuffer.position(0);
-
-        ByteBuffer bb2 = ByteBuffer.allocateDirect(index.length * 2);
-        bb2.order(ByteOrder.nativeOrder());
-        mIndexBuffer = bb2.asShortBuffer();
-        mIndexBuffer.put(index);
-        mIndexBuffer.position(0);
 
         int vertexShader = Util.loadShader(GLES20.GL_VERTEX_SHADER, vertexShaderCode);
         int fragmentShader = Util.loadShader(GLES20.GL_FRAGMENT_SHADER, fragmentShaderCode);
@@ -87,11 +77,11 @@ public class SquareRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onDrawFrame(GL10 gl) {
-        GLES20.glClearColor(0, 0, 0, 1);
+        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
         GLES20.glUseProgram(mProgram);
 
-        int vMatrixHandler = GLES20.glGetUniformLocation(mProgram, "vMatrix");
-        GLES20.glUniformMatrix4fv(vMatrixHandler, 1, false, mMVPMatrix, 0);
+        int matrixHandler = GLES20.glGetUniformLocation(mProgram, "vMatrix");
+        GLES20.glUniformMatrix4fv(matrixHandler, 1, false, mMVPMatrix, 0);
 
         int positionHandler = GLES20.glGetAttribLocation(mProgram, "vPosition");
         GLES20.glEnableVertexAttribArray(positionHandler);
@@ -100,10 +90,26 @@ public class SquareRenderer implements GLSurfaceView.Renderer {
         int colorHandler = GLES20.glGetUniformLocation(mProgram, "vColor");
         GLES20.glUniform4fv(colorHandler, 1, color, 0);
 
-//        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
-
-        //索引法绘制正方形
-        GLES20.glDrawElements(GLES20.GL_TRIANGLES, index.length, GLES20.GL_UNSIGNED_SHORT, mIndexBuffer);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_FAN, 0, coordinates.length / 3);
         GLES20.glDisableVertexAttribArray(positionHandler);
+    }
+
+    private float[] createPositions() {
+        ArrayList<Float> data = new ArrayList<>();
+        //设置圆心坐标
+        data.add(0f);
+        data.add(0f);
+        data.add(0f);
+        float angDegSpan = 360f / n;
+        for (float i = 0; i < 360 + angDegSpan; i += angDegSpan) {
+            data.add((float) (radius * Math.sin(i * Math.PI / 180f)));
+            data.add((float) (radius * Math.cos(i * Math.PI / 180f)));
+            data.add(0f);
+        }
+        float[] f = new float[data.size()];
+        for (int i = 0; i < f.length; i++) {
+            f[i] = data.get(i);
+        }
+        return f;
     }
 }

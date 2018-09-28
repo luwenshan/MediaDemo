@@ -37,6 +37,7 @@
         <activity android:name=".opengles.b01.OpenGLES20Activity" />
         <activity android:name=".opengles.b02.OpenGLTriangleActivity"></activity>
         <activity android:name=".opengles.b03.SquareActivity" />
+        <activity android:name=".opengles.b04.CircleActivity" />
     </application>
 
 </manifest>
