@@ -1,13 +1,15 @@
-package com.lws.demo.media.opengles.b05;
+package com.lws.demo.media.opengles.b06;
 
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.lws.demo.media.opengles.b05.CubeRenderer;
+
 /**
- * 绘制立方体
+ * 绘制纹理贴图
  */
-public class CubeActivity extends AppCompatActivity {
+public class ImageTextureActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +18,7 @@ public class CubeActivity extends AppCompatActivity {
         setContentView(GLSurfaceView);
 
         GLSurfaceView.setEGLContextClientVersion(2);
-        GLSurfaceView.Renderer renderer = new CubeRenderer();
+        GLSurfaceView.Renderer renderer = new ImageTextureRenderer(this);
         GLSurfaceView.setRenderer(renderer);
 //        mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }

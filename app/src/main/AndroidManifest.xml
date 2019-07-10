@@ -35,10 +35,11 @@
         <activity android:name=".media.a05.MediaRecordActivity" />
         <activity android:name=".media.a04.H264RecordActivity" />
         <activity android:name=".opengles.b01.OpenGLES20Activity" />
-        <activity android:name=".opengles.b02.OpenGLTriangleActivity"></activity>
+        <activity android:name=".opengles.b02.OpenGLTriangleActivity" />
         <activity android:name=".opengles.b03.SquareActivity" />
         <activity android:name=".opengles.b04.CircleActivity" />
         <activity android:name=".opengles.b05.CubeActivity" />
+        <activity android:name=".opengles.b06.ImageTextureActivity" />
     </application>
 
 </manifest>

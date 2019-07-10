@@ -26,6 +26,7 @@ import com.lws.demo.media.opengles.b02.OpenGLTriangleActivity;
 import com.lws.demo.media.opengles.b03.SquareActivity;
 import com.lws.demo.media.opengles.b04.CircleActivity;
 import com.lws.demo.media.opengles.b05.CubeActivity;
+import com.lws.demo.media.opengles.b06.ImageTextureActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("OpenGL ES 2.0 绘制正方形", SquareActivity.class));
         list.add(new MainBean("OpenGL ES 2.0 绘制圆形", CircleActivity.class));
         list.add(new MainBean("OpenGL ES 2.0 绘制立方体", CubeActivity.class));
+        list.add(new MainBean("OpenGL ES 2.0 绘制纹理图片", ImageTextureActivity.class));
         return list;
     }
 
